@@ -1,8 +1,7 @@
 # seng-474-csc-503-loaded-framing-detection
 ABSTRACT 
 
-Framing in news headlines can influence how readers interpret so-
-cial issues, particularly when language emphasizes one perspective
+Framing in news headlines can influence how readers interpret social issues, particularly when language emphasizes one perspective
 or intensifies evaluative meaning. This project investigates framing
 bias in American news headlines covering social issues in other
 countries, using the corresponding article as contextual information.
@@ -12,4 +11,4 @@ task. The resulting classifier will be used to examine differences in
 framing patterns across countries and issue types within American
 international news coverage. The project repository and associated
 artifacts are available at https://github.com/Ethan-J-LeeMMV/seng-
-474-csc-503-loaded-framing-detectio
+474-csc-503-loaded-framing-detection
