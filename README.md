@@ -31,11 +31,11 @@ Features (see `method/framing/features.py`):
 The classifier is class-weighted, L2-regularized logistic regression on standardized features.
 
 ## Git Clone: 
-
+```
 git clone https://github.com/Ethan-J-LeeMMV/seng-474-csc-503-loaded-framing-detection.git
 
 cd seng-474-csc-503-loaded-framing-detection
-
+```
 ## 3. Prerequisite (Requirements)
 
 - Python 3.11 or 3.12 (3.12 tested locally)
