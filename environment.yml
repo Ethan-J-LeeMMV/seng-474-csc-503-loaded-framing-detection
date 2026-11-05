@@ -1,0 +1,10 @@
+# Optional: use if you prefer Conda/Mamba over venv + requirements.txt.
+# After create/activate, still run: python -m spacy download en_core_web_sm
+name: seng474-framing
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.11,<3.13
+  - pip
+  - pip:
+      - -r requirements.txt
