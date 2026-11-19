@@ -1,12 +1,12 @@
 # seng-474-csc-503-loaded-framing-detection
 
-## Abstract
+## 1. Abstract
 
 Framing in news headlines can influence how readers interpret social issues, particularly when language emphasizes one perspective or intensifies evaluative meaning. This project investigates framing bias in American news headlines covering social issues in other countries, using the corresponding article as contextual information. We operationalize framing bias through one-sided terms and subjective intensifiers and formulate its detection as a binary classification task. The resulting classifier will be used to examine differences in framing patterns across countries and issue types within American international news coverage.
 
 Repository: [Ethan-J-LeeMMV/seng-474-csc-503-loaded-framing-detection](https://github.com/Ethan-J-LeeMMV/seng-474-csc-503-loaded-framing-detection)
 
-## Project layout
+## 2. Illustrative Sample
 
 ```
 data/
@@ -33,12 +33,18 @@ Features (see `method/framing/features.py`):
 
 The classifier is class-weighted, L2-regularized logistic regression on standardized features.
 
-## Requirements
+## Git Clone: 
+```
+git clone https://github.com/Ethan-J-LeeMMV/seng-474-csc-503-loaded-framing-detection.git
+
+cd seng-474-csc-503-loaded-framing-detection
+```
+## 3. Prerequisite (Requirements)
 
 - Python 3.11 or 3.12 (3.12 tested locally)
 - spaCy English model **`en_core_web_sm`** (installed separately; see below)
 
-## Setup
+## 4. Setup/Installation Guide
 
 ### Option A — pip and venv (recommended)
 
@@ -62,7 +68,7 @@ conda activate seng474-framing
 python -m spacy download en_core_web_sm
 ```
 
-## Run training
+## 5. Quick Start/Run training
 
 From the **repository root** (with the virtual environment activated):
 
@@ -89,7 +95,7 @@ The raw CSV uses columns `title`, `body`, and `bias` (`0` = not biased, `1` = bi
 
 Re-running with the same `--out` **overwrites** `weights.json` and `predictions.csv` in that folder.
 
-## Outputs
+## 6. Outputs
 
 | File | Contents |
 |------|----------|
@@ -117,9 +123,13 @@ python evaluation/evaluate.py `
 
 Numeric features are cached in `data/preprocessed/features.csv` and reused. The script holds out a stratified 20% test set, picks each model by repeated stratified CV on the development set, and scores the test set once. If `headline_attribution` is 0 on every development row, that feature is dropped. Confusion matrices, CV and test tables, and the F1 plots are written under `evaluation/results/`.
 
-## Lexicon/Citation
+## 7. Lexicon/Citation
 
 The word bank is the [MPQA Subjectivity Lexicon](https://mpqa.cs.pitt.edu/lexicons/subj_lexicon/) (`subjclues.tff`). By default only **strongsubj** single-word clues are used. Cite Wilson, Wiebe, and Hoffmann (2005), *HLT/EMNLP*, when reporting results.
+
+## 8. LICENSE 
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details. 
+
 
 ## Smoke test (features only)
 
