@@ -14,6 +14,7 @@ data/
   raw/SENG474-CSC503_dataset.csv # labeled headline–body pairs
 src/
   main.py                        # training pipeline entry point
+  test_predictions.py # per-article test predictions
   method/
     framing/features.py          # feature extraction φ(h, a)
 evaluation/
@@ -122,6 +123,12 @@ python evaluation/evaluate.py `
 ```
 
 Numeric features are cached in `data/preprocessed/features.csv` and reused. The script holds out a stratified 20% test set, picks each model by repeated stratified CV on the development set, and scores the test set once. If `headline_attribution` is 0 on every development row, that feature is dropped. Confusion matrices, CV and test tables, and the F1 plots are written under `evaluation/results/`.
+
+If you want, you can run 
+```
+python src/test_predictions.py
+```
+to see what each model said about the five tested articles.
 
 ## 7. Lexicon/Citation
 
