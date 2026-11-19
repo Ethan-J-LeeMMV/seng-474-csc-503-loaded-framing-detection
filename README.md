@@ -14,7 +14,7 @@ data/
   raw/SENG474-CSC503_dataset.csv # labeled headline–body pairs
 src/
   main.py                        # training pipeline entry point
-  test_predictions.py # per-article test predictions
+  test_predictions.py            # per-article test predictions
   method/
     framing/features.py          # feature extraction φ(h, a)
 evaluation/
