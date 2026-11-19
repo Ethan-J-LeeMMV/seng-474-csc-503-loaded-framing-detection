@@ -16,6 +16,9 @@ src/
   main.py                        # training pipeline entry point
   method/
     framing/features.py          # feature extraction φ(h, a)
+evaluation/
+  evaluate.py                    # held-out evaluation entry point
+  results/                       # created by evaluate.py (gitignored)
 output/                          # created by main.py (gitignored)
 ```
 
@@ -93,7 +96,26 @@ Re-running with the same `--out` **overwrites** `weights.json` and `predictions.
 | `output/weights.json` | Feature names, coefficients, intercept, scaler, run metadata |
 | `output/predictions.csv` | Per-row `id`, true `label`, `train_prob` (P(biased)), `train_pred`, `headline` |
 
-`predictions.csv` is **in-sample** (training data only). Held-out evaluation is planned for a later milestone.
+`predictions.csv` is **in-sample** (training data only). Held-out numbers come from the evaluation script below.
+
+## Evaluation
+
+From the repository root, with the virtual environment activated:
+
+```powershell
+python evaluation/evaluate.py `
+  --data data/raw/SENG474-CSC503_dataset.csv `
+  --lexicon data/lexicon/subjclues.tff `
+  --headline-col title `
+  --label-col bias `
+  --out evaluation/results `
+  --seed 0 `
+  --test-size 0.2 `
+  --folds 3 `
+  --repeats 5
+```
+
+Numeric features are cached in `data/preprocessed/features.csv` and reused. The script holds out a stratified 20% test set, picks each model by repeated stratified CV on the development set, and scores the test set once. If `headline_attribution` is 0 on every development row, that feature is dropped. Confusion matrices, CV and test tables, and the F1 plots are written under `evaluation/results/`.
 
 ## Lexicon/Citation
 
